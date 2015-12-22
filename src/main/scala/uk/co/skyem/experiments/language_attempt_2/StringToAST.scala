@@ -1,7 +1,5 @@
 package uk.co.skyem.experiments.language_attempt_2
 
-import java.nio.charset.MalformedInputException
-
 import scala.collection.mutable
 import scala.util.control.Breaks._
 
@@ -31,7 +29,7 @@ class StringToAST(string: String) extends CreatesAST{
 	
 	override def makeASTList(): Option[(ASTList, Int)] = {
 		var characters = string
-		if (characters.charAt(0) != '(') { return None }
+		if (characters.length == 0 || characters.charAt(0) != '(') { return None }
 		characters = characters.substring(1)
 		
 		var list = mutable.Buffer[ASTEntry]()
@@ -69,7 +67,7 @@ class StringToAST(string: String) extends CreatesAST{
 	
 	override def makeASTString(): Option[(ASTString, Int)] = {
 		var characters = string
-		if (string.charAt(0) != '"') { return None }
+		if (string.length == 0 || string.charAt(0) != '"') { return None }
 		characters = characters.substring(1)
 		
 		var result = ""
