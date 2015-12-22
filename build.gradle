@@ -1,0 +1,13 @@
+// This is a scala project
+apply plugin: 'scala'
+apply plugin: 'application'
+
+mainClassName = 'uk.co.skyem.experiments.language_attempt_2.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.7'
+}
